@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+              <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+              <!--xmlns:tools="http://schemas.android.com/tools"-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
+              <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+              <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+              <!--android:paddingTop="@dimen/activity_vertical_margin"-->
+              <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+              <!--tools:context="com.example.vincent.projetpeta.Activities.MainActivity"-->
+              <!--tools:showIn="@layout/activity_main">-->
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/downloadPageButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click To Download a File"/>
+
+    <Button
+        android:id="@+id/uploadPageButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click To Upload a File"/>
+
+    <Button
+        android:id="@+id/JSONPageButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click To Do Some Stuff with JSON"/>
+
+    <Button
+        android:id="@+id/LoginPage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click To Login"/>
+
+    <Button
+        android:id="@+id/FriendPage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click To See Your Friends"/>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    >
+</LinearLayout>
