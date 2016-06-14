@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><!--  res/drawable/edittext_rounded_corners.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/backdark_blue"
+                android:centerColor="@android:color/holo_blue_dark"
+                android:endColor="@color/backdark_blue"
+                android:gradientRadius="360"
+                android:type="linear"
+                />
+            <corners android:radius="50dp"/>
+            <stroke
+                android:width="2dp"
+                android:color="@android:color/white"
+                />
+        </shape>
+    </item>
+</selector>

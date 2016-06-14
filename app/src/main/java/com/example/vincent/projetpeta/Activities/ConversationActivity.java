@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.percent.PercentLayoutHelper;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -369,13 +371,15 @@ public class ConversationActivity extends AppCompatActivity {
 
 	public class RVAdapter extends RecyclerView.Adapter<RVAdapter.VideoViewHolder> {
 		private List<VideoFile> videoFiles;
+		private final static float miniatureSize = 0.7f;
 
 		public RVAdapter(List<VideoFile> videoFiles) {
 			this.videoFiles = videoFiles;
 		}
 
 		public class VideoViewHolder extends RecyclerView.ViewHolder {
-			CardView cv;
+			private CardView cv;
+
 			//			TextView videoName;
 //			TextView videoDate;
 			ImageView videoMiniature;
@@ -384,6 +388,7 @@ public class ConversationActivity extends AppCompatActivity {
 				super(itemView);
 				cv = (CardView) itemView.findViewById(R.id.cv);
 				videoMiniature = (ImageView) itemView.findViewById(R.id.video_image);
+
 				itemView.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -392,6 +397,11 @@ public class ConversationActivity extends AppCompatActivity {
 						startActivity(intent);
 					}
 				});
+
+			}
+
+			public CardView getCv() {
+				return this.cv;
 			}
 		}
 
@@ -409,6 +419,18 @@ public class ConversationActivity extends AppCompatActivity {
 		@Override
 		public void onBindViewHolder(VideoViewHolder personViewHolder, int i) {
 			personViewHolder.videoMiniature.setImageResource(videoFiles.get(i).getIdMiniature());
+			CardView cv = personViewHolder.getCv();
+			PercentRelativeLayout.LayoutParams params = (PercentRelativeLayout.LayoutParams) cv.getLayoutParams();
+			// This will currently return null, if it was not constructed from XML.
+			PercentLayoutHelper.PercentLayoutInfo info = params.getPercentLayoutInfo();
+			if (info != null) {
+				info.widthPercent = 0.7f;
+				if (videoFiles.get(i).getIdSender() == getSharedPreferences(Constantes.INFO_USER, 0).getInt(Constantes.ID_USER, -1))
+					info.leftMarginPercent = 1 - miniatureSize;
+				else
+					info.leftMarginPercent = 0;
+				cv.requestLayout();
+			}
 		}
 
 		@Override
