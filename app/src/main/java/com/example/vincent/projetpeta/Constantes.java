@@ -14,7 +14,8 @@ public class Constantes {
 	public static final String URL_LOGIN_SERVICE = PETA_SERVICES + "login.php";
 	public static final String URL_REGISTER_SERVICE = PETA_SERVICES + "register.php";
 	public static final String URL_GET_USERS_SERVICE = PETA_SERVICES + "getUsers.php";
-
+	public static final String URL_UPLOAD = PETA_SERVICES + "upload.php";
+	public static final String CONVERSATIONS_REP = PETA_REP + "conversations/";
 
 	public static final String LOGIN = "user_login";
 	public static final String PRENOM = "user_prenom";
